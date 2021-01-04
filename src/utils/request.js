@@ -1,5 +1,6 @@
 import axios from "axios";
 import { getToken } from "./auth";
+
 const instance = axios.create({
     baseURL: 'http://localhost:3004',
     timeout: 5000
@@ -22,20 +23,20 @@ instance.interceptors.response.use({
     function(error){
         return Promise.reject(error);
     }
-})
+});
 
 export function get(url){
-    return instance.get(url)
+    return instance.get(url);
 }
 
 export function post(url,data){
-    return instance.post(url,data)
+    return instance.post(url,data);
 }
 
 export function put(url,data){
-    return instance.put(url,data)
+    return instance.put(url,data);
 }
 
 export function del(url){
-    return instance.delete(url)
+    return instance.delete(url);
 }

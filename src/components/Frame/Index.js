@@ -1,32 +1,31 @@
-import React, {  useEffect,useState} from 'react'
-import { Layout, Menu, Dropdown, Avatar,Badge} from 'antd';
-import { adminRoutes } from "../../routes";
+import React from 'react'
+import { Layout, Menu, Dropdown, Avatar, Badge } from 'antd';
 import { withRouter } from "react-router-dom";
-import "./frame.css"
-import { clearToken } from "../../utils/auth";
 import { connect } from "react-redux";
-import { listApi } from '../../services/products';
+
+import { clearToken } from "../../utils/auth";
+import { adminRoutes } from "../../routes";
+import "./frame.css"
 
 const { Header, Content, Sider } = Layout;
 const routes = adminRoutes.filter(route => route.isShow);
 
 function Index(props) {
+  const popMenu = (
+    <Menu onClick={(p) => {
+      if (p.key === 'logOut') {
+        props.history.push('/login');
+        clearToken();
+      }
+      if (p.key === 'noti') {
+        props.history.push('/admin/notice');
+      }
+    }}>
+      <Menu.Item key="noti">通知中心</Menu.Item>
+      <Menu.Item key="setting">设置</Menu.Item>
+      <Menu.Item key="logOut">退出</Menu.Item>
+    </Menu>)
 
-
-  
-  const popMenu = (<Menu onClick={(p)=>{
-    if(p.key=='logOut'){
-      props.history.push('/login');
-      clearToken();
-    } 
-    if(p.key=='noti'){
-      props.history.push('/admin/notice');
-    }
-  }}>
-    <Menu.Item key="noti">通知中心</Menu.Item>
-    <Menu.Item key="setting">设置</Menu.Item>
-    <Menu.Item key="logOut">退出</Menu.Item>
-  </Menu>)
   return (
     <Layout>
       <Header className="header">
@@ -36,9 +35,9 @@ function Index(props) {
         <Dropdown overlay={popMenu}>
           <div>
             <Avatar>U</Avatar>
-              <Badge dot={!props.notice.isAllRead}>
-                <span style={{ color: "white" }}>超级管理员</span> 
-              </Badge>          
+            <Badge dot={!props.notice.isAllRead}>
+              <span style={{ color: "white" }}>超级管理员</span>
+            </Badge>
           </div>
         </Dropdown>
       </Header>
@@ -48,23 +47,20 @@ function Index(props) {
             mode="inline"
             defaultSelectedKeys={['1']}
             defaultOpenKeys={['sub1']}
-            style={{ height: '100%', borderRight: 0 }}
-          >
+            style={{ height: '100%', borderRight: 0 }}>
             {routes.map(route => {
               return (<Menu.Item key={route.path} onClick={p => props.history.push(p.key)}>{route.title}</Menu.Item>)
             })}
           </Menu>
         </Sider>
-        <Layout style={{ padding: '16px' }}>
-
+        <Layout style={{padding: '16px'}}>
           <Content
             className="site-layout-background"
             style={{
               padding: 24,
               margin: 0,
               minHeight: 280,
-            }}
-          >
+            }}>
             {props.children}
           </Content>
         </Layout>
@@ -75,4 +71,4 @@ function Index(props) {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps) (withRouter(Index));
+export default connect(mapStateToProps)(withRouter(Index));

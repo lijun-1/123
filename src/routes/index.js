@@ -8,7 +8,8 @@ import Notice from "../pages/admin/notice/index";
 export const mainRoutes=[{
     path: "/login",
     component: Login
-},{
+},
+{
     path: "/404",
     component: PageNotFound
 }]
@@ -17,22 +18,23 @@ export const adminRoutes=[{
     path: "/admin/dashboard",
     isShow: false,
     title:'项目详情',
-    component: index
-    
-},{
+    component: index   
+},
+{
     path: "/admin/products",
     component: List,
     isShow: true,
     title:'项目列表',   
     exact: true
-},{
+},
+{
     path: "/admin/products/edit/",
     isShow: false,
     component: Edit
-},{
+},
+{
     path: "/admin/notice", 
     component: Notice,
     isShow: false
-   
 }
 ]

@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import { Provider } from "react-redux";
-import rootReducer from "./store/index";
 import "antd/dist/antd.css";
+
+import rootReducer from "./store/index";
 import './index.css';
 import App from './App';
 import { mainRoutes } from "./routes";
 import reportWebVitals from './reportWebVitals';
-
 
 ReactDOM.render(
   <Provider store={rootReducer}>
