@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button, Card, List, Typography } from "antd";
 import { connect } from "react-redux";
+import { Button, Card, List, Typography } from "antd";
 
 const data = [
     "江畔何人初见月",

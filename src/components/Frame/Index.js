@@ -1,11 +1,11 @@
 import React from 'react'
-import { Layout, Menu, Dropdown, Avatar, Badge } from 'antd';
-import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { Layout, Menu, Dropdown, Avatar, Badge } from 'antd';
 
-import { clearToken } from "../../utils/auth";
-import { adminRoutes } from "../../routes";
 import "./frame.css"
+import { adminRoutes } from "../../routes";
+import { clearToken } from "../../utils/auth";
 
 const { Header, Content, Sider } = Layout;
 const routes = adminRoutes.filter(route => route.isShow);

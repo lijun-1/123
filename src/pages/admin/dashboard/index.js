@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { Card, Form, Button } from "antd";
-import BraftEditor from 'braft-editor'
 import 'braft-editor/dist/index.css'
+import BraftEditor from 'braft-editor'
+import { Card, Form, Button } from "antd";
+import React, { useEffect, useState } from 'react'
 
 import { getOneById, modifyOne } from "../../../services/products";
 

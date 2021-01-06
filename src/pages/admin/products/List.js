@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import { Card, Table, Button, Popconfirm, message } from "antd";
 import { connect } from "react-redux";
+import { Card, Table, Button, Popconfirm, message } from "antd";
 
-import { listApi, delOne, modifyOne } from "../../../services/products";
 import './list.css'
+import { listApi, delOne, modifyOne } from "../../../services/products";
 import { loadProduct } from "../../../store/actions/product";
 
 function List(props) {

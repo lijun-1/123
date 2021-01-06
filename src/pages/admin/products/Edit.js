@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { Form, Card, Input, Button, message } from "antd";
+import 'braft-editor/dist/index.css'
 import BraftEditor from 'braft-editor'
 import { connect } from "react-redux";
-import 'braft-editor/dist/index.css'
+import React, { useEffect, useState } from 'react'
+import { Form, Card, Input, Button, message } from "antd";
+
 
 import { creatApi, getOneById, modifyOne } from "../../../services/products";
 function Edit(props) {

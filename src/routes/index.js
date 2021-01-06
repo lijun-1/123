@@ -1,9 +1,11 @@
 import index from "../pages/admin/dashboard";
 import Edit from "../pages/admin/products/Edit";
 import List from "../pages/admin/products/List";
-import Login from "../pages/Login";
-import PageNotFound from "../pages/PageNotFound";
 import Notice from "../pages/admin/notice/index";
+import PageNotFound from "../pages/PageNotFound";
+import Login from "../pages/Login";
+
+
 
 export const mainRoutes=[{
     path: "/login",
