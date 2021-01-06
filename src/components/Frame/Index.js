@@ -17,11 +17,11 @@ function Index(props) {
         props.history.push('/login');
         clearToken();
       }
-      if (p.key === 'noti') {
+      if (p.key === 'notice') {
         props.history.push('/admin/notice');
       }
     }}>
-      <Menu.Item key="noti">通知中心</Menu.Item>
+      <Menu.Item key="notice">通知中心</Menu.Item>
       <Menu.Item key="setting">设置</Menu.Item>
       <Menu.Item key="logOut">退出</Menu.Item>
     </Menu>)

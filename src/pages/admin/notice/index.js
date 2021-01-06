@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card, List,Typography} from "antd";
+import { Button, Card, List, Typography } from "antd";
 import { connect } from "react-redux";
 
 const data = [
@@ -12,18 +12,18 @@ const data = [
 function index(props) {
     return (
         <Card title="通知中心" extra={<div>
-        <Button onClick={()=>props.dispatch({
-            type: "READ_ALL"
-        })}>全部已读</Button>
-        <Button type="primary" style={{margin:"0 1rem" }} onClick={()=>{props.history.push('/admin/products')}}>退出</Button>
+            <Button onClick={() => props.dispatch({
+                type: "READ_ALL"
+            })}>全部已读</Button>
+            <Button type="primary" style={{ margin: "0 1rem" }} onClick={() => { props.history.push('/admin/products') }}>退出</Button>
         </div>}>
-            <List 
-            header={<div>Header</div>}
+            <List
+                header={<div>Header</div>}
                 footer={<div>Footer</div>}
                 bordered
                 dataSource={data}
                 renderItem={item => (
-                    <List.Item style={{display:'flex',alignContent:'space-between'}}>
+                    <List.Item style={{ display: 'flex', alignContent: 'space-between' }}>
                         <Typography.Text mark>[ITEM]</Typography.Text> {item}
                         <Button size="small">已读</Button>
                     </List.Item>
@@ -33,4 +33,4 @@ function index(props) {
     )
 }
 
-export default connect(state=>state) (index);
+export default connect(state => state)(index);

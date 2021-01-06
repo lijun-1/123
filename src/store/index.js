@@ -9,4 +9,4 @@ const rootReducer = combineReducers({
     product
 })
 
-export default createStore(rootReducer,compose(applyMiddleware(...[thunk])));
+export default createStore(rootReducer,compose(applyMiddleware(thunk)));

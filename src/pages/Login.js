@@ -5,13 +5,10 @@ import "./login.css";
 import { loginApi } from "../services/auth";
 
 function Login(props) {
-    let userName = "";
-    let password = "";
-    
     const onFinish = (values) => {
         loginApi().then(value => {
-            userName = value.data.username;
-            password = value.data.password;
+            const userName = value.data.username;
+            const password = value.data.password;
             if (userName === values.username && password === values.password) {
                 setToken(values.username);
                 props.history.push("/admin/products");

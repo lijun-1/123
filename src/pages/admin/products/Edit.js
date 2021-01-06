@@ -6,11 +6,10 @@ import 'braft-editor/dist/index.css'
 
 import { creatApi, getOneById, modifyOne } from "../../../services/products";
 function Edit(props) {
-    const id = props.location.pathname;
+    const id = props.match.params.id;
     const [editorState, setEditorState] = useState(BraftEditor.createEditorState())
     
     const onFinish = (values) => {
-        console.log('Success:', values);
         if (isNaN(id.charAt(id.length - 1))) {
             creatApi({ ...values, content: editorState.toHTML() })
                 .then(response => {

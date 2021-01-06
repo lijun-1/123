@@ -16,14 +16,14 @@ instance.interceptors.request.use(
     }
 );
 
-instance.interceptors.response.use({
+instance.interceptors.response.use(
     function(response){
-        return response.data;
+        return response;
     },
     function(error){
         return Promise.reject(error);
     }
-});
+);
 
 export function get(url){
     return instance.get(url);

@@ -15,7 +15,7 @@ export const mainRoutes=[{
 }]
 
 export const adminRoutes=[{
-    path: "/admin/dashboard",
+    path: "/admin/dashboard/:id",
     isShow: false,
     title:'项目详情',
     component: index   
@@ -28,7 +28,7 @@ export const adminRoutes=[{
     exact: true
 },
 {
-    path: "/admin/products/edit/",
+    path: "/admin/products/edit/:id",
     isShow: false,
     component: Edit
 },
