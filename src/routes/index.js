@@ -35,6 +35,11 @@ export const adminRoutes=[{
     component: Edit
 },
 {
+    path: "/admin/products/edit/",
+    isShow: false,
+    component: Edit
+},
+{
     path: "/admin/notice", 
     component: Notice,
     isShow: false

@@ -11,7 +11,7 @@ function Edit(props) {
     const [editorState, setEditorState] = useState(BraftEditor.createEditorState())
     
     const onFinish = (values) => {
-        if (isNaN(id.charAt(id.length - 1))) {
+        if (typeof(id)=='undefined') {
             creatApi({ ...values, content: editorState.toHTML() })
                 .then(response => {
                     message.info("保存成功");
@@ -42,7 +42,7 @@ function Edit(props) {
     }
 
     useEffect(() => {
-        if (isNaN(id.charAt(id.length - 1))) {
+        if (typeof(id)=="undefined") {
         } else {
             getOneById(Number(id.charAt(id.length - 1)))
                 .then(response => {
@@ -52,15 +52,15 @@ function Edit(props) {
     }, []);
 
     return (
-        <Card title={(isNaN(id.charAt(id.length - 1))) ? "添加项目" : "修改项目"}
+        <Card title={typeof(id)=="undefined" ? "添加项目" : "修改项目"}
             extra={<Button type="default" size="small" onClick={() => props.history.push("/admin/products")}>返回</Button>}>
             <Form onFinish={onFinish} onFinishFailed={onFinishFailed}>
                 <Form.Item label="名字" name="name" 
-                initialValue={isNaN(id.charAt(id.length - 1)) ? "" : props.list[(id.charAt(id.length - 1))].name} rules={[{ required: true, message: "请输入项目名称" }]}>
+                initialValue={typeof(id)=="undefined" ? "" : props.list[(id.charAt(id.length - 1))].name} rules={[{ required: true, message: "请输入项目名称" }]}>
                     <Input placeholder="请输入项目名称" />
                 </Form.Item>
                 <Form.Item label="项目进度" name="progress" 
-                initialValue={isNaN(id.charAt(id.length - 1)) ? "" : props.list[(id.charAt(id.length - 1))].progress} rules={[{ required: true, message: '请输入项目进度' }, 
+                initialValue={typeof(id)=="undefined" ? "" : props.list[(id.charAt(id.length - 1))].progress} rules={[{ required: true, message: '请输入项目进度' }, 
                 ({ getFieldValue }) => ({
                     validator(rule, value) {
                         if (value >= 0 && value <= 1) {
